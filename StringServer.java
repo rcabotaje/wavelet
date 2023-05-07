@@ -6,8 +6,13 @@ class Handler implements URLHandler {
     public String handleRequest(URI url) {
         if(url.getPath().equals("/add-message")){
             String[] parameters = url.getQuery().split("=");
-            bruh+= parameters[1]+ "\n";
-            return bruh;
+            if(!parameters[0].equals("s")){
+                return "use a \'s\'";
+            }
+            else{
+                bruh+= parameters[1]+ "\n";
+                return bruh;
+            }
         }
         else{
             return bruh;
